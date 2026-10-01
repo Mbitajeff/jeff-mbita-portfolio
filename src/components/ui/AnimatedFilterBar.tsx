@@ -42,7 +42,8 @@ export function AnimatedFilterBar<T extends string>({
       ref={containerRef}
       role="group"
       aria-label={ariaLabel}
-      className="relative flex flex-wrap gap-2"
+      className="relative flex gap-2 overflow-x-auto pb-1 scrollbar-none"
+      style={{ WebkitOverflowScrolling: "touch" }}
     >
       {/* Sliding pill indicator */}
       <div

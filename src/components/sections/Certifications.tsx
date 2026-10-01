@@ -5,7 +5,7 @@ import { certifications, education } from "@/data/certifications";
 
 export function Certifications() {
   return (
-    <section id="certifications" className="py-24">
+    <section id="certifications" className="py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-14">
           <Reveal>
@@ -14,7 +14,7 @@ export function Certifications() {
             </p>
           </Reveal>
           <Reveal delay={1}>
-            <h2 className="font-[family-name:var(--font-pt-sans)] font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">
+            <h2 className="font-[family-name:var(--font-pt-sans)] font-bold text-3xl md:text-5xl text-zinc-900 dark:text-white">
               Certifications and Education
             </h2>
           </Reveal>

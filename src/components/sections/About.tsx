@@ -59,13 +59,13 @@ const approachSteps = [
 
 export function About() {
   return (
-    <section id="about" className="py-24">
+    <section id="about" className="py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Bio */}
-        <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-16 md:mb-24">
           <Reveal className="order-2 md:order-1">
-            <div className="pf w-full aspect-square max-w-sm mx-auto rounded-3xl">
+            <div className="pf w-full aspect-square max-w-xs mx-auto rounded-3xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/jeff-mbita.png"
@@ -82,7 +82,7 @@ export function About() {
               </p>
             </Reveal>
             <Reveal delay={1}>
-              <h2 className="font-[family-name:var(--font-pt-sans)] font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6">
+              <h2 className="font-[family-name:var(--font-pt-sans)] font-bold text-3xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6">
                 A bit about<br />who I am
               </h2>
             </Reveal>

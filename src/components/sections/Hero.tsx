@@ -22,19 +22,18 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-5 py-16 w-full">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
 
           <div>
             <Reveal>
-              <p className="text-sm font-medium text-green-400 tracking-widest uppercase mb-4">
+              <p className="text-xs font-medium text-green-400 tracking-widest uppercase mb-4">
                 AWS Certified &middot; Nairobi, Kenya
               </p>
             </Reveal>
 
             <Reveal delay={1}>
-              {/* Terminal prompt line */}
-              <div className="inline-flex items-center gap-2 bg-zinc-900/80 border border-zinc-700/60 rounded-lg px-4 py-2 mb-6 font-mono text-xs text-green-400 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 bg-zinc-900/80 border border-zinc-700/60 rounded-lg px-3 py-1.5 mb-5 font-mono text-xs text-green-400 backdrop-blur-sm">
                 <span className="text-zinc-500">$</span>
                 <span>whoami</span>
                 <span className="cursor-blink text-green-400 ml-1">▌</span>
@@ -42,30 +41,31 @@ export function Hero() {
             </Reveal>
 
             <Reveal delay={1}>
-              <h1 className="font-[family-name:var(--font-pt-sans)] font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-white mb-6">
+              <h1 className="font-[family-name:var(--font-pt-sans)] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-white mb-5">
                 Hi, I&apos;m{" "}
                 <span className="text-accent">Jeff</span>
               </h1>
             </Reveal>
 
             <Reveal delay={2}>
-              <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed max-w-md mb-10">
+              <p className="text-base md:text-xl text-zinc-400 font-light leading-relaxed max-w-md mb-8">
                 <strong className="font-medium text-zinc-200">AWS Cloud Solutions Architect</strong> based in Nairobi, Kenya. I design and build cloud infrastructure, secure AI workloads, and automate everything with Terraform and CI/CD.
               </p>
             </Reveal>
 
             <Reveal delay={3}>
-              <div className="flex flex-wrap gap-4">
+              {/* Primary actions row */}
+              <div className="flex flex-wrap gap-3 mb-3">
                 <MagneticButton
                   href="#projects"
-                  className="shimmer inline-flex items-center gap-2 bg-white text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-200 transition-colors text-sm"
+                  className="shimmer inline-flex items-center gap-2 bg-white text-zinc-900 font-medium px-6 py-3 rounded-full hover:bg-zinc-200 transition-colors text-sm"
                 >
                   View projects <ArrowDown className="w-4 h-4" />
                 </MagneticButton>
 
                 <MagneticButton
                   href="#contact"
-                  className="inline-flex items-center gap-2 border border-zinc-600 text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-800 transition-colors text-sm"
+                  className="inline-flex items-center gap-2 border border-zinc-600 text-zinc-300 font-medium px-6 py-3 rounded-full hover:bg-zinc-800 transition-colors text-sm"
                 >
                   Get in touch
                 </MagneticButton>
@@ -74,16 +74,18 @@ export function Hero() {
                   href="/jeff-mbita-resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shimmer inline-flex items-center gap-2 bg-accent text-white font-medium px-6 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
+                  className="shimmer inline-flex items-center gap-2 bg-accent text-white font-medium px-5 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
                 >
                   <Download className="w-4 h-4" /> Download CV
                 </MagneticButton>
-
+              </div>
+              {/* Secondary actions row */}
+              <div className="flex flex-wrap gap-3">
                 <MagneticButton
                   href="https://wa.me/254745888904"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-zinc-600 text-zinc-300 font-medium px-5 py-3.5 rounded-full hover:bg-zinc-800 transition-colors text-sm"
+                  className="inline-flex items-center gap-2 border border-zinc-700 text-zinc-400 font-medium px-4 py-2.5 rounded-full hover:bg-zinc-800 transition-colors text-sm"
                 >
                   <MessageCircle className="w-4 h-4" /> WhatsApp
                 </MagneticButton>
@@ -92,7 +94,7 @@ export function Hero() {
                   href="https://www.linkedin.com/in/jeff-mbita-a91672241/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-zinc-600 text-zinc-300 font-medium px-5 py-3.5 rounded-full hover:bg-zinc-800 transition-colors text-sm"
+                  className="inline-flex items-center gap-2 border border-zinc-700 text-zinc-400 font-medium px-4 py-2.5 rounded-full hover:bg-zinc-800 transition-colors text-sm"
                 >
                   <Linkedin className="w-4 h-4" /> LinkedIn
                 </MagneticButton>
@@ -101,21 +103,21 @@ export function Hero() {
 
             {/* Animated stats */}
             <Reveal delay={4}>
-              <div className="flex gap-8 mt-14 pt-8 border-t border-zinc-800">
+              <div className="flex gap-6 mt-10 pt-8 border-t border-zinc-800">
                 <div>
-                  <p className="font-[family-name:var(--font-pt-sans)] font-bold text-3xl text-white">
+                  <p className="font-[family-name:var(--font-pt-sans)] font-bold text-2xl sm:text-3xl text-white">
                     <CountUp to={2} suffix="x" />
                   </p>
                   <p className="text-xs text-zinc-500 mt-1">AWS Certified</p>
                 </div>
                 <div>
-                  <p className="font-[family-name:var(--font-pt-sans)] font-bold text-3xl text-white">
+                  <p className="font-[family-name:var(--font-pt-sans)] font-bold text-2xl sm:text-3xl text-white">
                     <CountUp to={14} suffix="+" />
                   </p>
                   <p className="text-xs text-zinc-500 mt-1">Cloud projects</p>
                 </div>
                 <div>
-                  <p className="font-[family-name:var(--font-pt-sans)] font-bold text-3xl text-white">
+                  <p className="font-[family-name:var(--font-pt-sans)] font-bold text-2xl sm:text-3xl text-white">
                     <CountUp to={2} suffix="y+" />
                   </p>
                   <p className="text-xs text-zinc-500 mt-1">AWS experience</p>
@@ -124,10 +126,9 @@ export function Hero() {
             </Reveal>
           </div>
 
-          {/* Photo */}
-          <Reveal delay={2} className="flex justify-center md:justify-end">
-            <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              {/* Glowing ring behind photo */}
+          {/* Photo — shown above text on mobile, right on desktop */}
+          <Reveal delay={2} className="flex justify-center md:justify-end order-first md:order-last">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <div
                 className="absolute inset-0 rounded-3xl"
                 style={{
@@ -145,7 +146,7 @@ export function Hero() {
                   loading="eager"
                 />
               </div>
-              <div className="absolute -bottom-4 -left-4 z-20 bg-accent text-white font-[family-name:var(--font-pt-sans)] font-bold text-sm px-4 py-2.5 rounded-2xl shadow-lg shadow-accent/30">
+              <div className="absolute -bottom-3 -left-3 z-20 bg-accent text-white font-[family-name:var(--font-pt-sans)] font-bold text-xs sm:text-sm px-3 py-2 rounded-xl shadow-lg shadow-accent/30 whitespace-nowrap">
                 Remote &middot; Hybrid &middot; Nairobi
               </div>
             </div>

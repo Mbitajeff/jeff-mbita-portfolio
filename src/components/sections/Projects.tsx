@@ -64,7 +64,7 @@ export function Projects() {
   );
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
@@ -74,7 +74,7 @@ export function Projects() {
               </p>
             </Reveal>
             <Reveal delay={1}>
-              <h2 className="font-[family-name:var(--font-pt-sans)] font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">
+              <h2 className="font-[family-name:var(--font-pt-sans)] font-bold text-3xl md:text-5xl text-zinc-900 dark:text-white">
                 Projects
               </h2>
             </Reveal>
@@ -93,7 +93,7 @@ export function Projects() {
 
         {/* Featured 3-col grid */}
         {visibleFeatured.length > 0 && (
-          <div className="grid md:grid-cols-3 gap-6 mb-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
             {visibleFeatured.map((p, i) => (
               <Reveal key={p.slug} delay={(i % 3 + 1) as 1 | 2 | 3}>
                 <TiltCard className="h-full">

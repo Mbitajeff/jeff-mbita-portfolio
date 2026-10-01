@@ -35,7 +35,7 @@ export function Experience() {
     activeSkill === "none" || entry.bullets.some((b) => b.skills.includes(activeSkill as SkillTag));
 
   return (
-    <section id="experience" className="py-24 bg-zinc-50 dark:bg-zinc-900/40">
+    <section id="experience" className="py-16 md:py-24 bg-zinc-50 dark:bg-zinc-900/40">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-10">
           <Reveal>
@@ -44,7 +44,7 @@ export function Experience() {
             </p>
           </Reveal>
           <Reveal delay={1}>
-            <h2 className="font-[family-name:var(--font-pt-sans)] font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">
+            <h2 className="font-[family-name:var(--font-pt-sans)] font-bold text-3xl md:text-5xl text-zinc-900 dark:text-white">
               Experience
             </h2>
           </Reveal>

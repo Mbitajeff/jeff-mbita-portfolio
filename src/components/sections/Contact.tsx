@@ -180,9 +180,9 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="bg-zinc-900 dark:bg-zinc-800 rounded-3xl p-10 md:p-16 relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="bg-zinc-900 dark:bg-zinc-800 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16 relative overflow-hidden">
           {/* Particle network background */}
           <div className="absolute inset-0 rounded-3xl overflow-hidden opacity-40" aria-hidden="true">
             <ParticleNetwork />
@@ -198,7 +198,7 @@ export function Contact() {
                 <p className="text-xs font-medium text-accent tracking-widest uppercase mb-3">Get in touch</p>
               </Reveal>
               <Reveal delay={1}>
-                <h2 className="font-[family-name:var(--font-pt-sans)] font-bold text-4xl md:text-5xl text-white leading-tight mb-5">
+                <h2 className="font-[family-name:var(--font-pt-sans)] font-bold text-3xl md:text-5xl text-white leading-tight mb-5">
                   Let&apos;s work<br />together
                 </h2>
               </Reveal>
@@ -208,7 +208,7 @@ export function Contact() {
                 </p>
               </Reveal>
               <Reveal delay={3}>
-                <div className="flex flex-col gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {contactLinks.map((link) => (
                     <ContactLinkItem key={link.type} link={link} />
                   ))}
