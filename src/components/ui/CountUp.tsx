@@ -17,15 +17,32 @@ export function CountUp({ to, suffix = "", duration = 1800, className }: CountUp
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // Small delay so the element is visible before counting
+    const timer = setTimeout(() => {
+      if (started.current) return;
+      started.current = true;
+      const startTime = performance.now();
+      const tick = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setValue(Math.floor(eased * to));
+        if (progress < 1) requestAnimationFrame(tick);
+        else setValue(to);
+      };
+      requestAnimationFrame(tick);
+    }, 600);
+
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
+          clearTimeout(timer);
           started.current = true;
           const startTime = performance.now();
           const tick = (now: number) => {
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // ease out cubic
             const eased = 1 - Math.pow(1 - progress, 3);
             setValue(Math.floor(eased * to));
             if (progress < 1) requestAnimationFrame(tick);
@@ -38,7 +55,7 @@ export function CountUp({ to, suffix = "", duration = 1800, className }: CountUp
       { threshold: 0.5 }
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => { io.disconnect(); clearTimeout(timer); };
   }, [to, duration]);
 
   return (
