@@ -41,11 +41,15 @@ const workAreas = [
 ];
 
 const skills = [
-  "AWS EC2", "VPC", "IAM", "S3", "RDS", "Lambda",
-  "ECS", "EKS", "Bedrock", "SageMaker",
-  "Terraform", "CloudFormation", "Docker", "Kubernetes",
-  "CodePipeline", "CloudWatch", "GuardDuty", "KMS",
-  "Python", "Bash", "Linux", "Git",
+  "AWS", "Azure", "GCP",
+  "Terraform", "Ansible", "CloudFormation",
+  "Docker", "Kubernetes", "ECS", "EKS",
+  "Bedrock", "AgentCore", "SageMaker", "Strands Agents",
+  "CodePipeline", "GitOps", "Helm",
+  "CloudWatch", "GuardDuty", "KMS", "IAM",
+  "Python", "TypeScript", "JavaScript", "Bash", "SQL",
+  "React", "Next.js", "Node.js",
+  "MySQL", "MongoDB", "Pandas", "Linux", "Git",
 ];
 
 const approachSteps = [
@@ -88,17 +92,17 @@ export function About() {
             </Reveal>
             <Reveal delay={2}>
               <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-                I am an AWS Cloud Solutions Architect based in Nairobi, Kenya. I started in Control Engineering, moved into cloud infrastructure, and have spent the last two years designing and building on AWS — covering compute, networking, containers, CI/CD, security and AI workloads.
+                Versatile technology professional who builds, automates and secures cloud infrastructure and turns complex data into clear decisions. Experienced across AWS cloud engineering, DevOps, full-stack development and data analysis, with a record of reducing deployment errors, cutting manual effort and improving reliability for clients.
               </p>
             </Reveal>
             <Reveal delay={3}>
               <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-                I hold the AWS Certified Solutions Architect Professional and the Kubernetes and Cloud Native Associate, and recently completed BeSA Cohort 10 on Agentic AI from PoC to Production on AWS. My current focus is on cloud architecture, cloud security, and deploying secure AI agents using Amazon Bedrock and AgentCore.
+                I hold the AWS Certified Solutions Architect Professional, KCNA, and recently completed BeSA Cohort 10 on Agentic AI from PoC to Production on AWS. My current focus is cloud architecture, cloud security and secure AI workloads using Amazon Bedrock and AgentCore.
               </p>
             </Reveal>
             <Reveal delay={4}>
               <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8">
-                In my current role I also apply data analysis and business intelligence skills, but cloud architecture is where I am headed and what I want to build my career around.
+                A clear communicator who works well in remote, cross-functional teams, with a strong focus on secure, scalable and well-documented solutions. Recognized for balancing innovation with cost, risk and scalability trade-offs to drive long-term organizational value.
               </p>
             </Reveal>
             <Reveal delay={4}>

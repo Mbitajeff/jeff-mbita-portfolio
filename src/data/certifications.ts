@@ -13,9 +13,44 @@ export const certifications: Certification[] = [
     year: 2026,
   },
   {
-    name: "BeSA Cohort 10: Agentic AI PoC to Production on AWS",
+    name: "Agentic AI: PoC to Production on AWS",
     issuer: "BeSA Cloud Academy",
     year: 2026,
+  },
+  {
+    name: "AI Governance on AWS",
+    issuer: "DataExpert.io",
+    year: 2026,
+  },
+  {
+    name: "Agentic AI Evaluation and Observability",
+    issuer: "DataExpert.io",
+    year: 2026,
+  },
+  {
+    name: "Building Agentic AI on Amazon EKS and Serverless",
+    issuer: "DataExpert.io",
+    year: 2026,
+  },
+  {
+    name: "Design Authentication, Authorization and Logging",
+    issuer: "DataExpert.io",
+    year: 2026,
+  },
+  {
+    name: "Microsoft AI Skills Fest 2026",
+    issuer: "Microsoft",
+    year: 2026,
+  },
+  {
+    name: "McKinsey Forward Program",
+    issuer: "McKinsey and Company",
+    year: 2025,
+  },
+  {
+    name: "Introducing Generative AI with AWS",
+    issuer: "Udacity",
+    year: 2025,
   },
   {
     name: "Kubernetes and Cloud Native Associate (KCNA)",
@@ -28,12 +63,12 @@ export const certifications: Certification[] = [
     year: 2025,
   },
   {
-    name: "McKinsey Forward Program",
-    issuer: "McKinsey and Company",
-    year: 2025,
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services",
+    year: 2024,
   },
   {
-    name: "AWS Certified Cloud Practitioner",
+    name: "AWS Academy: Microservices and CI/CD Pipeline Builder",
     issuer: "Amazon Web Services",
     year: 2024,
   },
@@ -46,6 +81,11 @@ export const certifications: Certification[] = [
 
 export const education: EducationEntry[] = [
   {
+    institution: "Mentor Me Collective x Grow with Google",
+    qualification: "Google Cybersecurity Professional Certificate Programme",
+    period: "Mar 2026 to Sep 2026",
+  },
+  {
     institution: "Multimedia University of Kenya",
     qualification: "BSc Control Engineering",
     period: "2019 to 2023",
@@ -54,11 +94,11 @@ export const education: EducationEntry[] = [
   {
     institution: "Power Learn Project Africa",
     qualification: "Software Engineering, MERN Stack",
-    period: "2025",
+    period: "Feb 2025 to Aug 2025",
   },
   {
-    institution: "AWS re/Start (Ajira)",
+    institution: "AWS re/Start (Kenya)",
     qualification: "AWS Cloud Computing",
-    period: "2024",
+    period: "Jan 2024 to Apr 2024",
   },
 ];

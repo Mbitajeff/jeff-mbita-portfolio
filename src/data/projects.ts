@@ -211,13 +211,13 @@ export const projects: Project[] = [
     problem:
       "AcadeML needed to process large volumes of academic documents with optical character recognition at scale.",
     myRole:
-      "Deployed and troubleshot the AI/ML OCR pipeline on SageMaker and Lambda.",
+      "Delivered scalable, secure cloud solutions across industries — AWS migration for Andy's Car Auction, ML OCR pipeline for AcadeML, a real-time inventory management system for a small business, and containerised MERN microservices on ECS/EKS.",
     keyDecisions: [
       "SageMaker for scalable ML inference",
       "Lambda for event-driven document processing",
       "S3 triggers for automatic pipeline invocation",
     ],
-    outcome: "Document throughput improved by 60%.",
+    outcome: "Document throughput improved by 25%.",
     links: {},
     hasDiagram: false,
   },
