@@ -49,7 +49,7 @@ export function Hero() {
 
             <Reveal delay={2}>
               <p className="text-base md:text-xl text-zinc-400 font-light leading-relaxed max-w-md mb-8">
-                <strong className="font-medium text-zinc-200">AWS Cloud Solutions Architect</strong> based in Nairobi, Kenya. I design and build cloud infrastructure, secure AI workloads, and automate everything with Terraform and CI/CD.
+                <strong className="font-medium text-zinc-200">AWS Cloud Engineer and MERN Full-Stack Developer</strong> based in Nairobi, Kenya. I build across the whole stack — cloud infrastructure, web applications, data analysis and agentic AI — delivering solutions that are secure, scalable and production-ready.
               </p>
             </Reveal>
 
