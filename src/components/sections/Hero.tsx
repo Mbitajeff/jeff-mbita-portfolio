@@ -75,6 +75,7 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="shimmer inline-flex items-center gap-2 bg-accent text-white font-medium px-5 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
+                  data-track="cv-download"
                 >
                   <Download className="w-4 h-4" /> Download CV
                 </MagneticButton>
@@ -86,6 +87,7 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 border border-zinc-700 text-zinc-400 font-medium px-4 py-2.5 rounded-full hover:bg-zinc-800 transition-colors text-sm"
+                  data-track="whatsapp"
                 >
                   <MessageCircle className="w-4 h-4" /> WhatsApp
                 </MagneticButton>
@@ -95,6 +97,7 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 border border-zinc-700 text-zinc-400 font-medium px-4 py-2.5 rounded-full hover:bg-zinc-800 transition-colors text-sm"
+                  data-track="linkedin"
                 >
                   <Linkedin className="w-4 h-4" /> LinkedIn
                 </MagneticButton>

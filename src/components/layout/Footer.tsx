@@ -27,13 +27,13 @@ function InstagramIcon({ className }: { className?: string }) {
 }
 
 const links = [
-  { href: "https://www.linkedin.com/in/jeff-mbita-a91672241/", label: "LinkedIn", icon: Linkedin },
-  { href: "https://github.com/Mbitajeff", label: "GitHub", icon: Github },
-  { href: "https://medium.com/@jeffmbita69", label: "Medium", icon: BookOpen },
-  { href: "https://dev.to/mbitajeff", label: "Dev.to", icon: DevToIcon },
-  { href: "https://x.com/jeffmbita", label: "X", icon: XIcon },           // TODO: confirm X handle
-  { href: "https://instagram.com/Jey_nbita", label: "Instagram", icon: InstagramIcon },
-  { href: "https://wa.me/254745888904", label: "WhatsApp", icon: MessageCircle },
+  { href: "https://www.linkedin.com/in/jeff-mbita-a91672241/", label: "LinkedIn", icon: Linkedin, track: "linkedin" },
+  { href: "https://github.com/Mbitajeff", label: "GitHub", icon: Github, track: "github" },
+  { href: "https://medium.com/@jeffmbita69", label: "Medium", icon: BookOpen, track: "medium" },
+  { href: "https://dev.to/mbitajeff", label: "Dev.to", icon: DevToIcon, track: "devto" },
+  { href: "https://x.com/jeffmbita", label: "X", icon: XIcon, track: "x" },
+  { href: "https://instagram.com/Jey_nbita", label: "Instagram", icon: InstagramIcon, track: "instagram" },
+  { href: "https://wa.me/254745888904", label: "WhatsApp", icon: MessageCircle, track: "whatsapp" },
 ];
 
 export function Footer() {
@@ -64,15 +64,19 @@ export function Footer() {
           <span className="text-zinc-600 dark:text-zinc-300 font-medium">Jeff Mbita</span>
           . All rights reserved.
         </p>
+        <p className="text-xs text-zinc-600 dark:text-zinc-700 hidden sm:block">
+          This site records anonymous visit analytics.
+        </p>
 
         <div className="flex items-center gap-5 flex-wrap justify-center">
-          {links.map(({ href, label, icon: Icon }) => (
+          {links.map(({ href, label, icon: Icon, track }) => (
             <a
               key={href}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
+              data-track={track}
               className="group relative text-zinc-400 hover:text-accent transition-colors duration-200"
             >
               <span

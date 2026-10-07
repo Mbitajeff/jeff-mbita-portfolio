@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PT_Sans, DM_Sans } from "next/font/google";
 import { FloatingOrbs } from "@/components/ui/FloatingOrbs";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { TrackerInit } from "@/components/ui/TrackerInit";
 import "./globals.css";
 
 const ptSans = PT_Sans({
@@ -64,6 +65,7 @@ export default function RootLayout({
       <body className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
         <FloatingOrbs />
         <ScrollProgress />
+        <TrackerInit />
         {children}
       </body>
     </html>

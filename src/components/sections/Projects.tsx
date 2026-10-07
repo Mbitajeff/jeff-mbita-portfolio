@@ -132,7 +132,7 @@ export function Projects() {
                       ))}
                     </div>
                     <div className="flex items-center justify-between">
-                      <a href={`/projects/${p.slug}/`} className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
+                      <a href={`/projects/${p.slug}/`} data-track={`project-${p.slug}`} className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">
                         View details <ArrowRight className="w-3.5 h-3.5" />
                       </a>
                       <ProjectLinks project={p} />
@@ -179,7 +179,7 @@ export function Projects() {
                       {p.shortDescription}
                     </p>
                     <div className="flex items-center justify-between mt-auto">
-                      <a href={`/projects/${p.slug}/`} className="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-900 dark:text-white nl">
+                      <a href={`/projects/${p.slug}/`} data-track={`project-${p.slug}`} className="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-900 dark:text-white nl">
                         Details <ArrowRight className="w-3 h-3" />
                       </a>
                       <ProjectLinks project={p} />

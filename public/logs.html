@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Portfolio Logs</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; padding: 24px 16px; }
+  h1 { font-size: 1.25rem; font-weight: 700; margin-bottom: 20px; color: #f8fafc; }
+  .auth { max-width: 360px; margin: 80px auto; background: #1e293b; border-radius: 12px; padding: 28px; }
+  .auth h2 { font-size: 1rem; font-weight: 600; margin-bottom: 16px; color: #f8fafc; }
+  input[type=password] { width: 100%; background: #0f172a; border: 1px solid #334155; color: #f8fafc; padding: 10px 14px; border-radius: 8px; font-size: 0.875rem; outline: none; margin-bottom: 12px; }
+  input[type=password]:focus { border-color: #3b82f6; }
+  button { background: #3b82f6; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; cursor: pointer; }
+  button:hover { opacity: 0.9; }
+  button.secondary { background: #1e293b; border: 1px solid #334155; color: #94a3b8; margin-left: 8px; }
+  .error { color: #f87171; font-size: 0.8rem; margin-top: 8px; }
+  .toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  input[type=text] { background: #1e293b; border: 1px solid #334155; color: #f8fafc; padding: 8px 12px; border-radius: 8px; font-size: 0.8rem; outline: none; }
+  input[type=text]:focus { border-color: #3b82f6; }
+  .stats { font-size: 0.8rem; color: #64748b; margin-left: auto; }
+  .sessions { display: flex; flex-direction: column; gap: 8px; }
+  .session { background: #1e293b; border: 1px solid #334155; border-radius: 10px; overflow: hidden; }
+  .session-header { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto; gap: 8px; align-items: center; padding: 12px 16px; cursor: pointer; font-size: 0.8rem; }
+  .session-header:hover { background: #263348; }
+  .session-header .time { color: #94a3b8; font-size: 0.75rem; }
+  .session-header .campaign { background: #1d4ed8; color: #bfdbfe; padding: 2px 8px; border-radius: 9999px; font-size: 0.7rem; font-weight: 600; display: inline-block; }
+  .session-header .nocampaign { color: #475569; font-size: 0.75rem; }
+  .session-header .loc { color: #cbd5e1; }
+  .session-header .device { color: #64748b; font-size: 0.75rem; }
+  .session-header .clicks { background: #0f172a; color: #94a3b8; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; text-align: center; }
+  .session-body { border-top: 1px solid #334155; padding: 12px 16px; display: none; }
+  .session-body.open { display: block; }
+  .click-row { display: flex; gap: 12px; align-items: center; padding: 4px 0; border-bottom: 1px solid #1e293b; font-size: 0.78rem; }
+  .click-row:last-child { border-bottom: none; }
+  .click-time { color: #64748b; min-width: 70px; }
+  .click-target { color: #38bdf8; }
+  .referrer { color: #475569; font-size: 0.72rem; margin-top: 4px; }
+  .empty { text-align: center; padding: 40px; color: #475569; }
+  @media (max-width: 600px) {
+    .session-header { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+  }
+</style>
+</head>
+<body>
+
+<div id="auth-screen" class="auth">
+  <h2>Portfolio Logs</h2>
+  <input type="password" id="key-input" placeholder="Admin key" autocomplete="off" />
+  <br>
+  <button onclick="loadLogs()">View logs</button>
+  <div id="auth-error" class="error"></div>
+</div>
+
+<div id="logs-screen" style="display:none; max-width:900px; margin:0 auto;">
+  <h1>Portfolio Logs</h1>
+  <div class="toolbar">
+    <input type="text" id="campaign-filter" placeholder="Filter by campaign" oninput="renderSessions()" />
+    <button class="secondary" onclick="loadLogs()">Refresh</button>
+    <span class="stats" id="stats"></span>
+  </div>
+  <div class="sessions" id="sessions-list"></div>
+</div>
+
+<script>
+let allEvents = [];
+let adminKey = '';
+
+document.getElementById('key-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') loadLogs();
+});
+
+async function loadLogs() {
+  const input = document.getElementById('key-input');
+  const key = input ? input.value.trim() : adminKey;
+  if (!key) { document.getElementById('auth-error').textContent = 'Enter admin key.'; return; }
+  adminKey = key;
+
+  try {
+    const res = await fetch('/api/logs', { headers: { 'x-admin-key': key } });
+    if (res.status === 401) {
+      document.getElementById('auth-error').textContent = 'Wrong key.';
+      return;
+    }
+    const data = await res.json();
+    allEvents = data.events || [];
+    document.getElementById('auth-screen').style.display = 'none';
+    document.getElementById('logs-screen').style.display = 'block';
+    renderSessions();
+  } catch (e) {
+    document.getElementById('auth-error').textContent = 'Failed to connect.';
+  }
+}
+
+function toNairobi(iso) {
+  return new Date(iso).toLocaleString('en-KE', {
+    timeZone: 'Africa/Nairobi', dateStyle: 'short', timeStyle: 'short'
+  });
+}
+
+function renderSessions() {
+  const filter = document.getElementById('campaign-filter').value.trim().toLowerCase();
+
+  // Group by sessionId
+  const map = new Map();
+  for (const ev of allEvents) {
+    if (!map.has(ev.sessionId)) {
+      map.set(ev.sessionId, { visit: null, clicks: [] });
+    }
+    const s = map.get(ev.sessionId);
+    if (ev.type === 'visit') s.visit = ev;
+    else if (ev.type === 'click') s.clicks.push(ev);
+  }
+
+  // Sort newest first
+  const sessions = [...map.values()]
+    .filter(s => s.visit)
+    .sort((a, b) => new Date(b.visit.timestamp) - new Date(a.visit.timestamp));
+
+  // Apply campaign filter
+  const filtered = filter
+    ? sessions.filter(s => (s.visit.campaign || '').toLowerCase().includes(filter))
+    : sessions;
+
+  document.getElementById('stats').textContent =
+    `${filtered.length} sessions · ${allEvents.length} events total`;
+
+  const container = document.getElementById('sessions-list');
+  if (!filtered.length) {
+    container.innerHTML = '<div class="empty">No sessions found.</div>';
+    return;
+  }
+
+  container.innerHTML = filtered.map((s, i) => {
+    const v = s.visit;
+    const campaign = v.campaign
+      ? `<span class="campaign">${v.campaign}</span>`
+      : `<span class="nocampaign">direct</span>`;
+    const loc = `${v.city || '?'}, ${v.country || '?'}`;
+    const ref = v.referrer ? `<div class="referrer">ref: ${v.referrer}</div>` : '';
+
+    const clickRows = s.clicks.map(c =>
+      `<div class="click-row">
+        <span class="click-time">${toNairobi(c.timestamp).split(',')[1]?.trim() || ''}</span>
+        <span class="click-target">${c.target || 'unknown'}</span>
+      </div>`
+    ).join('');
+
+    return `
+      <div class="session">
+        <div class="session-header" onclick="toggleSession(${i})">
+          <div>
+            <div class="time">${toNairobi(v.timestamp)}</div>
+            ${ref}
+          </div>
+          <div>${campaign}</div>
+          <div class="loc">${loc}</div>
+          <div class="device">${v.device || '?'}</div>
+          <div class="clicks">${s.clicks.length} clicks</div>
+        </div>
+        <div class="session-body" id="sb-${i}">
+          ${s.clicks.length ? clickRows : '<div style="color:#475569;font-size:0.8rem">No clicks recorded</div>'}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function toggleSession(i) {
+  const el = document.getElementById(`sb-${i}`);
+  el.classList.toggle('open');
+}
+</script>
+</body>
+</html>

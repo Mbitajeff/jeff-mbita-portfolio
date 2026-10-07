@@ -10,6 +10,7 @@ interface MagneticButtonProps {
   rel?: string;
   onClick?: () => void;
   strength?: number;
+  "data-track"?: string;
 }
 
 export function MagneticButton({
@@ -20,6 +21,7 @@ export function MagneticButton({
   rel,
   onClick,
   strength = 0.35,
+  "data-track": dataTrack,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLElement>(null);
 
@@ -55,6 +57,7 @@ export function MagneticButton({
         target={target}
         rel={rel}
         className={className}
+        data-track={dataTrack}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
@@ -68,6 +71,7 @@ export function MagneticButton({
       ref={ref as React.RefObject<HTMLButtonElement>}
       onClick={onClick}
       className={className}
+      data-track={dataTrack}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
